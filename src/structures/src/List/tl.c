@@ -10,7 +10,7 @@ SACarg * SAC_List_tl( SACarg * elems)
 {
   list *data, *tail;
 
-  data = (list *)SACARGgetUniqueData (elems);
+  data = SACARGgetUniqueData (SACTYPE_List__list, elems);
   
   if (data == NULL) {
     SAC_RuntimeError( "tl applied to NIL\n");
@@ -19,6 +19,8 @@ SACarg * SAC_List_tl( SACarg * elems)
   tail = data->rest;
   data = SAC_FREE (data); 
 
-  return SACARGupdateUniqueData (elems, (void *)tail);
+  SACARGupdateUniqueData (SACTYPE_List__list, elems, tail);
+
+  return elems;
 
 }

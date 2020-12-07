@@ -9,15 +9,18 @@
 
 int SAC_List_hd( SACarg * elems)
 {
-  list *data;
+  const list *data;
+  int val;
 
-  data = (list *)SACARGgetSharedData (elems);
+  data = SACARGgetSharedData (SACTYPE_List__list, elems);
   if (data == NULL) {
     SAC_RuntimeError( "hd applied to NIL\n");
   }
 
+  val = data->elem;
+
   SACARGdeleteSacArray (&elems);
 
-  return( data->elem);
+  return( val);
 }
 
