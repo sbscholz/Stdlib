@@ -6,24 +6,13 @@
 #include "List.h"
 
 
-#define res_nt (res, T_OLD((SCL, (HID, (NUQ,)))))
 
-void SAC_List_nil( SAC_ND_PARAM_out( res_nt, list *))
+SACarg *SAC_List_nil()
 {
-  SAC_ND_DECL__DESC( res_nt, )
-  SAC_ND_DECL__DATA( res_nt, list *, )
+    SACarg *res;
 
-  res = (list *) SAC_MALLOC( sizeof( list));
-  res->rest = NULL;
-  SAC_ND_ALLOC__DESC( res_nt, 0)
-  SAC_ND_SET__RC( res_nt, 1)
-  res->desc = SAC_ND_A_DESC( res_nt);
+    res = SACARGcreateFromPointer (SACTYPE_List__list, NULL, 0);
 
-#if TRACE
-  fprintf( stderr, "creating NIL at (%p)\n", res);
-#endif
-
-  SAC_ND_RET_out( res_nt, res_nt)
+    return res;
 }
 
-#undef res_nt

@@ -8,29 +8,33 @@ export all;
  */
 
 external typedef list;
+    #pragma ctype "list *"
+    #pragma header "src/List/List.h"
     #pragma linkobj "src/List/free.o"
     #pragma freefun "SAC_List_free_list"
 
 external list nil();
     #pragma linkname "SAC_List_nil"
-    #pragma linksign [1]
-    #pragma refcounting [0]
+    #pragma linksign [0]
+    #pragma sacarg [0]
     #pragma linkobj "src/List/nil.o"
 external list cons( int ELEM, list LIST);
     #pragma linkname "SAC_List_cons"
-    #pragma linksign [1,2,3]
-    #pragma refcounting [0,2]
+    #pragma linksign [0,1,2]
+    #pragma sacarg [0,2]
     #pragma linkobj "src/List/cons.o"
 external int  hd( list LIST);
     #pragma linkname "SAC_List_hd"
     #pragma linksign [0,1]
-    #pragma refcounting [1]
+    #pragma sacarg [1]
     #pragma linkobj "src/List/hd.o"
 external list tl( list LIST);
     #pragma linkname "SAC_List_tl"
-    #pragma linksign [1,2]
-    #pragma refcounting [0,1]
+    #pragma linksign [0,1]
+    #pragma sacarg [0,1]
     #pragma linkobj "src/List/tl.o"
+
+#if 0
 external bool empty( list LIST);
     #pragma linkname "SAC_List_empty"
     #pragma linksign [0,1]
@@ -61,6 +65,6 @@ external list take( int N, list LIST);
     #pragma linksign [1,2,3]
     #pragma refcounting [0,2]
     #pragma linkobj "src/List/take.o"
-    
+ #endif   
 
 

@@ -6,32 +6,19 @@
 #include "List.h"
 
 
-#define res_nt   (res,   T_OLD((SCL, (HID, (NUQ,)))))
-#define elems_nt (elems, T_OLD((SCL, (HID, (NUQ,)))))
-
-void SAC_List_cons( SAC_ND_PARAM_out( res_nt, list *),
-           int elem,
-           SAC_ND_PARAM_in( elems_nt, list *))
+SACarg *SAC_List_cons( int elem, SACarg * elems)
 {
-  SAC_ND_DECL__DESC( res_nt, )
-  SAC_ND_DECL__DATA( res_nt, list *, )
+  list * res;
 
   res = (list *) SAC_MALLOC( sizeof( list));
   res->elem = elem;
-  res->rest = elems;
-  SAC_ND_ALLOC__DESC( res_nt, 0)
-  SAC_ND_SET__RC( res_nt, 1)
-  res->desc = SAC_ND_A_DESC( res_nt);
+  res->rest = (list *)SACARGgetUniqueData (elems);
 
 #if TRACE
   fprintf( stderr, "creating CONS at (%p)\n", res);
-  fprintf( stderr, "       [ %d   .   (%p)]\n", elem, elems);
+  fprintf( stderr, "       [ %d   .   (%p)]\n", elem, res->rest);
 #endif
 
-  SAC_ND_RET_out( res_nt, res_nt)
+  return SACARGupdateUniqueData (elems, (void *)res);
 }
 
-#undef res_nt
-#undef elemsA_nt
-#undef elemsB_nt
-#undef new_nt
