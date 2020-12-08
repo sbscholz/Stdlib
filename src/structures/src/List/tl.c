@@ -2,8 +2,10 @@
  *  Implementation of SAC standard module List
  */
 
+#include <stddef.h>
 
 #include "List.h"
+#include "sac.h"
 
 
 SACarg * SAC_List_tl( SACarg * elems)
@@ -17,7 +19,7 @@ SACarg * SAC_List_tl( SACarg * elems)
   }
 
   tail = data->rest;
-  data = SAC_FREE (data); 
+  SAC_FREE (data); 
 
   SACARGupdateUniqueData (SACTYPE_List__list, elems, tail);
 

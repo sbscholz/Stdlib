@@ -5,6 +5,7 @@
 
 #include "List.h"
 
+#if 0
 
 #define elems_nt (elems, T_OLD((SCL, (HID, (NUQ,)))))
 
@@ -25,3 +26,5 @@ int SAC_List_length( SAC_ND_PARAM_in( elems_nt, list *))
 }
 
 #undef elems_nt
+
+#endif

@@ -2,9 +2,9 @@
  *  Implementation of SAC standard module List
  */
 
-
 #include "List.h"
 
+#if 0
 
 #define res_nt    (res,    T_OLD((SCL, (HID, (NUQ,)))))
 #define elemsA_nt (elemsA, T_OLD((SCL, (HID, (NUQ,)))))
@@ -96,3 +96,5 @@ void SAC_List_append( SAC_ND_PARAM_out( res_nt, list *),
 #undef elemsA_nt
 #undef elemsB_nt
 #undef new_nt
+
+#endif
