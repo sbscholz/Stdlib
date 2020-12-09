@@ -13,7 +13,6 @@ external typedef list;
     #pragma linkobj "src/List/free.o"
     #pragma freefun "SAC_List_free_list"
 
-#if 0
 external list nil();
     #pragma linkname "SAC_List_nil"
     #pragma linksign [0]
@@ -25,14 +24,13 @@ external list cons( int ELEM, list LIST);
     #pragma linksign [0,1,2]
     #pragma sacarg [0,2]
     #pragma linkobj "src/List/cons.o"
-#endif
 
 external int  hd( list LIST);
     #pragma linkname "SAC_List_hd"
     #pragma linksign [0,1]
     #pragma sacarg [1]
     #pragma linkobj "src/List/hd.o"
-#if 0
+
 external list tl( list LIST);
     #pragma linkname "SAC_List_tl"
     #pragma linksign [0,1]
@@ -42,8 +40,10 @@ external list tl( list LIST);
 external bool empty( list LIST);
     #pragma linkname "SAC_List_empty"
     #pragma linksign [0,1]
-    #pragma refcounting [1]
+    #pragma sacarg [1]
     #pragma linkobj "src/List/empty.o"
+
+#if 0
 external list append( list LIST1, list LIST2);
     #pragma linkname "SAC_List_append"
     #pragma linksign [1,2,3]

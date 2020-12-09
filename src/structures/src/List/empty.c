@@ -2,26 +2,20 @@
  *  Implementation of SAC standard module List
  */
 
+#include "sac.h"
 
 #include "List.h"
 
-#if 0
 
-#define elems_nt (elems, T_OLD((SCL, (HID, (NUQ,)))))
-
-int SAC_List_empty( SAC_ND_PARAM_in( elems_nt, list *))
+bool SAC_List_empty( SACarg *elems)
 {
-  int res;
+  bool res;
 
-  res = (elems->rest == NULL);
+  res = (SACARGgetSharedData (SACTYPE_List__list, elems) == NULL);
 
-  if (--(DESC_RC( elems->desc)) == 0) {
-    SAC_List_free_list( elems);
-  }
+  SACARGdeleteSacArray (&elems);
 
   return( res);
 }
 
-#undef elems_nt
-#endif
 
