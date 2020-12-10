@@ -9,7 +9,7 @@
 #include "List.h"
 
 
-void SAC_List_free_list( list *elems)
+list * SAC_List_free_list( list *elems)
 {
   list *next;
 
@@ -24,4 +24,5 @@ void SAC_List_free_list( list *elems)
     elems = next;
   }
   while (elems != NULL);
+  return NULL;
 }

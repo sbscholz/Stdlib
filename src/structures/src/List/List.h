@@ -16,8 +16,8 @@ typedef struct LIST {
 } list;
 
 
-extern void SAC_List_free_list( list *elems);
-extern list * SAC_List_copy_list( list *elems);
+extern list * SAC_List_free_list (list *elems);
+extern list * SAC_List_copy_list (list *elems);
 
 extern SACarg *nil (void);
 extern SACarg *cons (int elem, SACarg *rest);
