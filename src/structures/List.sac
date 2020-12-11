@@ -12,6 +12,7 @@ external typedef list;
     #pragma header "/Volumes/Users/sbs/sacbase/Stdlib/src/structures/src/List/List.h"
     #pragma linkobj "src/List/free.o"
     #pragma freefun "SAC_List_free_list"
+    #pragma copyfun "SAC_List_copy_list"
 
 external list nil();
     #pragma linkname "SAC_List_nil"
