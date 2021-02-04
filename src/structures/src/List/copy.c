@@ -13,7 +13,7 @@ list * SAC_List_copy_list( list *elems)
 {
   list *new;
 
-  if( empty (elems)) {
+  if( elems == NULL) {
     new = NULL;
   } else {
 #if TRACE

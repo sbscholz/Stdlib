@@ -226,6 +226,7 @@ SET (C_DEPS_SRC
     structures/src/List/length.c
     structures/src/List/hd.c
     structures/src/List/free.c
+    structures/src/List/copy.c
     structures/src/List/empty.c
     structures/src/List/drop.c
     structures/src/List/cons.c
