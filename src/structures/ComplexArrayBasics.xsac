@@ -95,8 +95,9 @@ complex[*] reshape( int[.] shp, complex[*] A)
 
 
 inline
-complex[*] sel( int[.] idx, complex[*] array)
+complex[n:ishp] sel( int[m] idx, complex[m:shp,n:ishp] array)
 {
+#if 0
   new_shape = _drop_SxV_( _sel_VxA_( [0], _shape_A_(idx)), shape(array));
 
   res = with {
@@ -105,7 +106,8 @@ complex[*] sel( int[.] idx, complex[*] array)
             new_idx = _cat_VxV_( idx, iv );
           } : (complex[*])ArrayBasics::sel(new_idx, (double[*])array);
         } : genarray( new_shape, toc(0,0) );
-
+#endif
+  res = ArrayBasics::sel(idx, (double[*])array);
   return( (complex[*])res);
 }
 

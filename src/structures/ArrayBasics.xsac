@@ -135,6 +135,8 @@ BUILT_IN( RAVEL)
  *
  ******************************************************************************/
 
+#if 0
+
 #define SEL_VxA( typ, postfix, zval, oval)                               \
 inline                                                                   \
 typ[*] sel( int[.] idx, typ[*] array)                                    \
@@ -148,6 +150,18 @@ typ[*] sel( int[.] idx, typ[*] array)                                    \
         } : genarray( new_shape, zval);                                  \
   return( res);                                                          \
 }
+#else
+
+#define SEL_VxA( typ, postfix, zval, oval)                               \
+inline                                                                   \
+typ[*] sel( int[m] idx, typ[n:shp] array)                                \
+{                                                                        \
+  dimres = _sub_SxS_(n,m);                                               \
+  res = _eq_SxS_(dimres, 0) ? _sel_VxA_(idx, array)                      \
+                            : _subsel_VxA_(idx, array);                  \
+  return( res);                                                          \
+}
+#endif
 
 BUILT_IN( SEL_VxA)
 
