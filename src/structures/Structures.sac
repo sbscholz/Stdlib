@@ -8,6 +8,7 @@ import String: all;
 import Complex      : all;
 import Quaternion   : all;
 import Vector3      : all;
+import Vector3f     : all;
 #ifndef SAC_BACKEND_MUTC
 import Color8: all;
 import List: all;
