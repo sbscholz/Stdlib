@@ -31,7 +31,7 @@ make -j4
 **NOTE:** *When pulling the latest commit, remember to run `git submodule
 update` or you will be missing changes to the `cmake-common` repository.*
 
-> [!NOTE]  
+> [!TIP]  
 > An advantage of doing a cmake build is that the generated Makefile will get targets to build individual standard library modules.  
 > For instance `make seq-module-File` will then only build the File module for sequential code.
 
